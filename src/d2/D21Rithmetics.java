@@ -82,5 +82,40 @@ public class D21Rithmetics {
         // 다른 자료형과 함께라면?
         int date = 21;
         System.out.println("Today is " + date + ".");
+
+
+        // 증감 연산자
+        int count = 0;
+        // count = count + 1;
+        count++;
+        System.out.println(count);
+        // count = count - 1;
+        count--;
+        System.out.println(count);
+
+        count = 10;
+        // 앞에 붙으면 먼저 올리고 값을 사용한다.
+        ++count;
+        // 뒤에 붙으면 사용하고 값을 올린다.
+        count++;
+        System.out.println(++count);
+        System.out.println(count++);
+        System.out.println(count);
+
+        // '=' 활용하기
+        int addTo = 1;
+        // addTo = addTo + 10;
+        addTo += 10;
+        System.out.println(addTo);  // 11
+        addTo -= 10;
+        addTo *= 10;
+        addTo /= 10;
+        addTo %= 10;
+        System.out.println(addTo);
+
+        int base = 2;
+        // base = base * base;
+        base *= base;
+        System.out.println(base);
     }
 }
