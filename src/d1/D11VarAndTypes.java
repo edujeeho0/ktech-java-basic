@@ -57,7 +57,8 @@ public class D11VarAndTypes {
         int void = 100;
          */
 
-        // Naming Convention
+        // Naming Convention: camelCase
+        // 두 단어 이상일 때 다음 단어의 첫글자를 대문자로
         int lunchPrice = 100;
         int dinnerPrice = 200;
 
