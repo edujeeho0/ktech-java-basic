@@ -62,5 +62,10 @@ public class D32Loop {
         for (int i = 0; i < 10; i++) {
             System.out.println("i ^ 2: " + (i * i));
         }
+
+        /*// for의 각 부분은 생략 가능하다...................
+        for (;;) {
+            System.out.println("loop forever");
+        }*/
     }
 }
