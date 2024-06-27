@@ -1,7 +1,5 @@
 package d4.q1;
 
-import java.util.Scanner;
-
 /*
 Book 클래스를 만들어보자.
 
