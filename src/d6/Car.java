@@ -11,6 +11,14 @@ public class Car {
         this.fuel = 100;
     }
 
+    public void beep() {
+        System.out.println("빵빵");
+    }
+
+    public String getName() {
+        return name;
+    }
+
     public int getFuel() {
         return fuel;
     }
