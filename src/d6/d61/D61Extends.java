@@ -1,4 +1,4 @@
-package d6;
+package d6.d61;
 
 public class D61Extends {
     public static void main(String[] args) {

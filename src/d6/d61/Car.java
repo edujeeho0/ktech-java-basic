@@ -1,4 +1,4 @@
-package d6;
+package d6.d61;
 
 public class Car {
     private int fuel;
