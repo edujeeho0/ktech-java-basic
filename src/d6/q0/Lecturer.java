@@ -9,17 +9,17 @@ package d6.q0;
 의 형식으로 출력한다.
  */
 // 강사도 사람입니다
-public class Lecturer extends Person {
-    private String major;
+public class Lecturer extends CollegeMember {
+//    private String major;
     private int papers;
 
-    public String getMajor() {
-        return major;
-    }
-
-    public void setMajor(String major) {
-        this.major = major;
-    }
+//    public String getMajor() {
+//        return major;
+//    }
+//
+//    public void setMajor(String major) {
+//        this.major = major;
+//    }
 
     public int getPapers() {
         return papers;
@@ -33,7 +33,8 @@ public class Lecturer extends Person {
         System.out.println(String.format(
                 "%s(강사) - %s",
                 getName(),
-                major
+//                major
+                getMajor()
         ));
     }
 }
