@@ -13,5 +13,17 @@ public class Main {
             System.out.println("major is: " + ((Student) somebody).getMajor());
             ((Student) somebody).printInfo();
         }
+        somebody = new Lecturer();
+        somebody.setName("Brad");
+        somebody.setAge(45);
+        System.out.println("somebody's name is: " + somebody.getName());
+        if (somebody instanceof Lecturer) {
+            Lecturer lecturer = (Lecturer) somebody;
+            lecturer.setMajor("CSE");
+            lecturer.setPapers(0);
+            System.out.println("somebody is lecturer");
+            System.out.println("major is: " + lecturer.getMajor());
+            lecturer.printInfo();
+        }
     }
 }
