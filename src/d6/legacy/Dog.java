@@ -1,4 +1,4 @@
-package d6;
+package d6.legacy;
 
 public class Dog extends Animal {
     public void bark() {
