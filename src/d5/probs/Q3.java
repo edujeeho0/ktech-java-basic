@@ -22,6 +22,9 @@ public class Q3 {
                 return left * right;
             case '/':
                 return left / right;
+            // 정해지지 않은 명령에 대해서는
+            // 정상적이지 않다는 의미로
+            // 제일 작은 Integer를 돌려주자.
             default:
                 return Integer.MIN_VALUE;
         }
