@@ -17,6 +17,8 @@ public class Student extends Person {
         // 상위 클래스(부모 클래스)
         // super를 이용하면 부모 클래스의 메서드를 사용할 수 있다.
         super.sayHello();
+        // super 안쓰면 재귀함수다...
+        // sayHello();
         System.out.println(String.format(
                 "I'm studying %s.",
                 major

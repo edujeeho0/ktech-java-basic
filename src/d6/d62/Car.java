@@ -1,7 +1,8 @@
 package d6.d62;
 
 public class Car {
-    private int fuel;
+    // protected: 자식 클래스는 건드릴 수 있다.
+    protected int fuel;
 
     public void beep() {
         System.out.println("BEEEP");

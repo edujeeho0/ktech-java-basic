@@ -25,4 +25,16 @@ public class Truck extends Car {
     public int getLoad() {
         return load;
     }
+
+    public void drive(int kilos) {
+        super.drive(kilos);
+        // protected는 자식도 사용 가능
+        fuel -= load / (maxLoad / 10);
+//        // 추가 소비 연료량
+//        int extra = load / (maxLoad / 10);
+//        // 추가소비가 끝난 뒤의 연료량
+//        int nextFuel = getFuel() - extra;
+//        // 그걸 저장하기
+//        setFuel(nextFuel);
+    }
 }

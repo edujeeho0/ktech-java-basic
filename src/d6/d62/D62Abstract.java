@@ -19,5 +19,18 @@ public class D62Abstract {
         // Student의 sayHello가 실행된다.
         someStudent.sayHello();
 
+        Car sonata = new Car();
+        sonata.setFuel(100);
+        sonata.drive(20);
+        System.out.println(sonata.getFuel());
+
+        Truck porter = new Truck();
+        porter.setFuel(100);
+        porter.drive(20);
+        System.out.println(porter.getFuel());
+    }
+
+    public void makeSayHello(Person person) {
+        person.sayHello();
     }
 }

@@ -1,5 +1,7 @@
 package d6.q0;
 
+import d6.d62.Car;
+
 public class Main {
     public static void main(String[] args) {
         Person somebody = new Student();
