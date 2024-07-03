@@ -1,19 +1,36 @@
 package d7;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class D7ExceptionHandling {
     public static void main(String[] args) {
+        safeFact(Long.MAX_VALUE);
+        Scanner scanner = new Scanner(System.in);
+        String filename = scanner.nextLine();
+        readFileContents(filename);
+        try {
+            readFileContents2(filename);
+        } catch (FileNotFoundException e) {
+            System.out.println("아오....");
+        }
+
+        int[] arr = {1, 2, 3, 4};
+        if (arr.length > 4)
+        arr[4] = 10;
         // 예외의 가능성이 보인다면, 해당 부분을
         // try로 묶어준다.
         try {
-            Scanner scanner = new Scanner(System.in);
             int a = scanner.nextInt();
             int b = scanner.nextInt();
             Integer c = null;
 
-            System.out.println(divide(a, b));
+            // RuntimeException
+            // 코드를 꼼꼼히 짜면 방지가 가능은 하다
+            if (b != 0)
+                System.out.println(divide(a, b));
             // divide(int a, int b)에 null이 전달되었다...
             System.out.println(divide(a, c));
         }
@@ -42,6 +59,45 @@ public class D7ExceptionHandling {
         finally {
             System.out.println("Bye!");
         }
+    }
+
+    // Checked Exceptiom:
+    // Code 외적인 상황으로 발생할 수 있는 예외
+    public static void readFileContents(String filename) {
+        try {
+            File file = new File(filename);
+            Scanner scanner = new Scanner(file);
+            System.out.println(scanner.nextLine());
+        // 직접 처리하거나,
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println(e.getClass());
+        }
+    }
+
+    public static void readFileContents2(String filename)
+            // 발생 가능성을 명시해야 한다.
+            throws FileNotFoundException {
+        File file = new File(filename);
+        Scanner scanner = new Scanner(file);
+        System.out.println(scanner.nextLine());
+    }
+
+    public static void recursive(long n) {
+        if (n == 0) return;
+        recursive(n - 1);
+    }
+
+    public static int safeFact(long n) {
+        // 만약 너무 큰 숫자를 방지하고 싶다면,
+        if (n > 50) {
+//            RuntimeException e = new RuntimeException("좀 작은 숫자 넣어주세요.");
+//            throw e;
+            // 직접 예외를 발생시킬 수 있다. 안쪽에 작성한 내용은 getMessage()로 확인 가능.
+            throw new RuntimeException("too big input");
+        }
+        if (n == 0) return 1;
+        return safeFact(n - 1);
     }
 
     // 메서드 하나만...
