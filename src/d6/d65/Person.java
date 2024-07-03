@@ -2,21 +2,13 @@ package d6.d65;
 
 import java.util.Objects;
 
-// abstract class: 추상 클래스 -> 만들다 만 클래스
-// 구현되지 않은 메서드를 가질 수 있는 클래스
 public abstract class Person {
     private String name;
     private int age;
 
-//    @Override
-//    public String toString() {
-//        return String.format(
-//                "%s, %d",
-//                name, age
-//        );
-//    }
 
-
+    // 내가 만든 클래스도 Java 내부의 기능들(println)에 대하여
+    // 동작하는 방식을 정하고 싶다면 만들 수 있는 메서드들
     @Override
     public String toString() {
         return "Person{" +
@@ -39,7 +31,6 @@ public abstract class Person {
         return Objects.hash(name, age);
     }
 
-    // 추상 메서드는 자식 클래스가 구현해야 한다고 약속
     public abstract void sayHello();
 
     public String getName() {
