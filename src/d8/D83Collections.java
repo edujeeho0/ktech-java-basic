@@ -1,9 +1,6 @@
 package d8;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class D83Collections {
     public static void main(String[] args) {
@@ -58,6 +55,33 @@ public class D83Collections {
         skillList.remove("Kotlin");
         skillList.remove("Java");
         System.out.println(skillList);
+
+        // Set
+        // 순서를 보장하지 않으며, 중복을 허용하지 않는다.
+        Set<String> skillSet = new HashSet<>();
+        skillSet.add("Java");
+        skillSet.add("Python");
+        skillSet.add("Kotlin");
+        skillSet.add("Java");
+        System.out.println(skillSet);
+        System.out.println(skillSet.contains("Java"));
+        System.out.println(skillSet.contains("NodeJS"));
+        skillSet.remove("Python");
+        skillSet.remove("Kotlin");
+        System.out.println(skillSet);
+        // 순서가 없어서, get이 없다
+        // skillSet.get();  // 오류
+
+        // Set <-> List
+        List<String> setToList = new ArrayList<>(skillSet);
+        System.out.println(setToList.get(0));
+        for (int i = 0; i < 5; i++) {
+            setToList.add("Java");
+        }
+        System.out.println(setToList);
+
+        Set<String> listToSet = new HashSet<>(setToList);
+        System.out.println(listToSet);
     }
 
     public static void printEachElement(List<Integer> intList) {}
