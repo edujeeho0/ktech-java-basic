@@ -1,6 +1,6 @@
 package d8;
 
-public class D8Generics {
+public class D81Generics {
     public static void main(String[] args) {
         int[] nums = {1, 2, 3, 4, 5};
         IntArrayWrapper numWrapper = new IntArrayWrapper(nums);
@@ -29,6 +29,7 @@ public class D8Generics {
         System.out.println(intArrayWrapper.max());
         System.out.println(doubleArrayWrapper.max());
         ArrayWrapper<Person> p;
+
     }
 
     // 메서드 타입 파라미터
