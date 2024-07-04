@@ -82,6 +82,50 @@ public class D83Collections {
 
         Set<String> listToSet = new HashSet<>(setToList);
         System.out.println(listToSet);
+
+        // 그냥 클래스로도 된다.
+        List<Person> peopleList = new ArrayList<>();
+        peopleList.add(new Person("alex", 25));
+        peopleList.add(new Person("brad", 30));
+        peopleList.add(new Person("chad", 35));
+        peopleList.add(new Person("alex", 25));
+        System.out.println(peopleList);
+
+        // equals와 hashCode를 잘 Override 했다면
+        // Set으로 중복 검사 가능
+        Set<Person> people = new HashSet<>(peopleList);
+        System.out.println("Set people");
+        System.out.println(people);
+
+
+        // Iterable
+        // 일반적인 리스트가 있다고 가정하자.
+        List<String> names = new ArrayList<>();
+        names.add("alex");
+        names.add("brad");
+        names.add("chad");
+        names.add("dave");
+        // Iterator: 어떤 Collection의 데이터를 하나씩
+        //          꺼내오는 객체
+        // List의 Iterator를 가져오는 메서드
+        Iterator<String> listIter = names.listIterator();
+        // 이 Iterator가 가르키는 데이터 모음 중, 다음에 볼 데이터가 있는지
+        // -> 아직 확인할 데이터가 남았는지
+        while (listIter.hasNext()) {
+            // 이 Iterator가 가르키고 있는 데이터를 가져온다.
+            System.out.println(listIter.next());
+        }
+        // Iterable을 구현한 클래스는,
+        // for - each에서 사용이 가능하다.
+        for (String name: names) {
+            System.out.println(name);
+        }
+        for (String skill: skillSet) {
+            System.out.println(skill);
+        }
+        for (Person person: peopleList) {
+            System.out.println(person);
+        }
     }
 
     public static void printEachElement(List<Integer> intList) {}
