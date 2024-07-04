@@ -19,7 +19,7 @@ public class D7ExceptionHandling {
 
         int[] arr = {1, 2, 3, 4};
         if (arr.length > 4)
-        arr[4] = 10;
+            arr[4] = 10;
         // 예외의 가능성이 보인다면, 해당 부분을
         // try로 묶어준다.
         try {
