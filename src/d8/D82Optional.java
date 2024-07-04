@@ -18,20 +18,20 @@ public class D82Optional {
 //            else System.out.println("not equals");
 //        }
 
-//        for (int i = 0; i < 10; i++) {
-//            System.out.println("try: " + i);
-//            // 문자열 일수도, null 일수도 있는 값
-//            // 을 들고있는 클래스
-//            Optional<String> optionalString
-//                    = Optional.ofNullable(nullOrString());
-//            // 만약 nullOrString()의 결과가 null이 아니라면, isPresent가 true
-//            if (optionalString.isPresent())
-//                System.out.println(optionalString.get());
-//            // 아니라면(결과가 null이라면), isEmpty가 true
-//            if (optionalString.isEmpty())
-//                System.out.println("result was null");
-//            System.out.println();
-//        }
+        for (int i = 0; i < 10; i++) {
+            System.out.println("try: " + i);
+            // 문자열 일수도, null 일수도 있는 값
+            // 을 들고있는 클래스
+            Optional<String> optionalString
+                    = Optional.ofNullable(nullOrString());
+            // 만약 nullOrString()의 결과가 null이 아니라면, isPresent가 true
+            if (optionalString.isPresent())
+                System.out.println(optionalString.get());
+            // 아니라면(결과가 null이라면), isEmpty가 true
+            if (optionalString.isEmpty())
+                System.out.println("result was null");
+            System.out.println();
+        }
 
         for (int i = 0; i < 10; i++) {
             System.out.println("try: " + i);
