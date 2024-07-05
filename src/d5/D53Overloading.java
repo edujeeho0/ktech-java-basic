@@ -37,19 +37,23 @@ public class D53Overloading {
         return arraySum(arr, s, arr.length);
     }
 
-    public static int add(int a, int b) {
-        return a + b;
-    }
+
     // 메서드 시그니처(method signature)가 달라야 한다.
     /*public static long add(int a, int b) {
         return a + b;
     }*/
 
+    // 메서드 이름이 같아도, 매개변수가 다르면 오버로딩이 된다.
     public static long add(int a, long b) {
         return a + b;
     }
 
+    public static int add(int a, int b) {
+        System.out.println("add(int a, int b)");
+        return a + b;
+    }
     public static long add(long a, long b) {
+        System.out.println("add(long a, long b)");
         return a + b;
     }
 

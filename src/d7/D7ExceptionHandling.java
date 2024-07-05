@@ -26,18 +26,8 @@ public class D7ExceptionHandling {
             int a = scanner.nextInt();
             int b = scanner.nextInt();
             Integer c = null;
-
-            // RuntimeException
-            // 코드를 꼼꼼히 짜면 방지가 가능은 하다
-            if (b != 0)
-                System.out.println(divide(a, b));
-            // divide(int a, int b)에 null이 전달되었다...
-            System.out.println(divide(a, c));
+            System.out.println(divide(a, b));
         }
-//        catch (InputMismatchException e) {
-//            System.out.println("please input integer");
-//        }
-        // catch - try에서 발생한 예외를 잡아라.
         catch (ArithmeticException e) {
             System.out.println("Sorry, can't do that");
             // Exception도 일종의 객체로 포장되어 나온다.

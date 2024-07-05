@@ -17,6 +17,7 @@ public class Qc {
     public static void main(String[] args) {
         System.out.println(caesarCode(10, "ROVVY"));
         System.out.println(caesarCode(5, "BTWQI"));
+        System.out.println(caesarCode(10, "KLMNO"));
     }
 
     public static String caesarCode(int key, String code) {

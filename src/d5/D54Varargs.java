@@ -28,7 +28,15 @@ public class D54Varargs {
                 0, 1, 2, 3, 4, 5, 6
         ));
         // 메서드 밖에서는 별도의 인자로 전달이 가능하다.
-        System.out.println(varNumSum(1,2,3,4,5,6,7,8));
+        System.out.println(varNumSum(
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8));
         // 배열을 전달하는것도 가능하다.
         int[] numbers = {1, 2, 3};
         System.out.println(varNumSum(numbers));

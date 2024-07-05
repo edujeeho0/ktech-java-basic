@@ -2,7 +2,7 @@ package d6.d65;
 
 import java.util.Objects;
 
-public abstract class Person {
+public abstract class Person extends Object {
     private String name;
     private int age;
 
@@ -18,6 +18,7 @@ public abstract class Person {
     }
 
     @Override
+    // Intellij가 자동으로 만들어줌
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

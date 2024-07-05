@@ -8,8 +8,8 @@ public class D51Methods {
     public static void main(String[] args) {
         int a = 10;
         int b = 15;
-//        int sum = addTwo(a, b);
-//        System.out.println(sum);
+        int sum = addTwo(a, b);
+        System.out.println(sum);
         int c = 20;
         int result = diff(addTwo(b, c), subTwo(a, b));
         // result = diff(35, subTwo(a, b));

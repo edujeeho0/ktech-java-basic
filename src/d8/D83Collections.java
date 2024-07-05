@@ -126,6 +126,73 @@ public class D83Collections {
         for (Person person: peopleList) {
             System.out.println(person);
         }
+
+        // Map
+        // Key - Value로 데이터를 관리하는 자료구조
+        Map<String, String> me = new HashMap<>();
+        // put(Key, Value)
+        me.put("name", "Jeeho Park");
+        me.put("age", "100");
+        me.put("email", "edujeeho@gmail.com");
+        System.out.println(me.get("name"));
+        System.out.println(me.get("age"));
+        System.out.println(me);
+
+        Map<Long, String> bus = new HashMap<>();
+        bus.put(9003L, "종로에서 운중동까지");
+        // 같은 키를 사용하면 덮어씌워진다.
+        bus.put(8100L, "명동에서 정자동까지");
+        bus.put(8100L, "명동에서 분당까지");
+        System.out.println(bus.get(8100L));
+        // 없는 데이터를 get하면, null
+        System.out.println(bus.get(1500L));
+
+        // user.name, user.email
+        Map<String, String> gitConfig = new HashMap<>();
+        gitConfig.put("user.email", "edujeeho@gmail.com");
+        gitConfig.put("user.name", "edujeeho");
+        // 없으면 넣는다.
+        gitConfig.putIfAbsent("user.name", "jeeho park");
+        System.out.println(gitConfig.get("user.name"));
+        // 없으면 기본값 사용
+        System.out.println(gitConfig.getOrDefault("user.email", "unknown"));
+        System.out.println(gitConfig.getOrDefault("user.online", "no"));
+
+        // Key가 존재하면 true
+        if (gitConfig.containsKey("user.online")) {
+            System.out.println(gitConfig.get("user.online"));
+        }
+        // Key 연결된 Value를 반환하고 제거
+        System.out.println(gitConfig.remove("user.name"));
+        System.out.println(gitConfig.containsKey("user.name"));
+        System.out.println(gitConfig.remove("user.online"));
+
+        // keySet(): 이 맵이 들고있는 모든 Key를 가진 Set을 반환하는 메서드
+        Set<String> confKeyset = gitConfig.keySet();
+        // 그러면 있는 키들만 가지고 반복이 가능하다.
+        for (String key: confKeyset) {
+            System.out.println(key + ": " + gitConfig.get(key));
+        }
+        // Entry: Key와 Value한 쌍
+        Set<Map.Entry<String, String>> entrySet = me.entrySet();
+        for (Map.Entry<String, String> entry: entrySet) {
+            System.out.println();
+            System.out.println("key: " + entry.getKey());
+            System.out.println("value: " + entry.getValue());
+        }
+
+        // Person Map
+        Map<String, Person> peopleInfo = new HashMap<>();
+        peopleInfo.put("alex", new Person("Alex", 25));
+        peopleInfo.put("brad", new Person("Brad", 35));
+        peopleInfo.put("chad", new Person("Chad", 40));
+        for (Map.Entry<String, Person> entry: peopleInfo.entrySet()) {
+            System.out.println();
+            System.out.println("details for: " + entry.getKey());
+            System.out.println(entry.getValue());
+        }
+        // key: present, absent
+        Map<String, List<Person>> attendance;
     }
 
     public static void printEachElement(List<Integer> intList) {}

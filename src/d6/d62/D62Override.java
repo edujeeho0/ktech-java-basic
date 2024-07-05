@@ -1,6 +1,6 @@
 package d6.d62;
 
-public class D62Abstract {
+public class D62Override {
     public static void main(String[] args) {
         Person somebody = new Person();
         somebody.setName("Alex");
