@@ -1,7 +1,9 @@
 package d9;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class D93UsingStream {
@@ -65,5 +67,66 @@ public class D93UsingStream {
 
         // 3. Terminal Operations
         //    최종 작업: Stream의 데이터를 마지막으로 사용
+
+        // forEach(Consumer) -> 인자는 받는데, 반환은 없는 함수형 인터페이스를 받는다.
+        // 남은 원소들을 대상으로 코드를 실행하고 종료.
+        /*nameStream4.forEach(name -> {
+            System.out.println(String.format("Hello, %s!!!", name));
+            System.out.println("Your name's length is: " + name.length());
+            // 데이터를 돌려주는 용도로는 못쓴다.
+            // return 0;
+        });*/
+
+        // toArray()
+        // 남은 원소들을 가지고 새로운 배열을 만들고 종료.
+        // (원시 타입에 좀더 유리)
+        /*List<Integer> integerList = new ArrayList<>();
+        integerList.add(10);
+        integerList.add(20);
+        integerList.add(30);
+        int[] intArray = integerList.stream()
+                .mapToInt(i -> i)
+                .toArray();
+        System.out.println(Arrays.toString(intArray));*/
+
+        // toList()
+        // 리스트로 모으기
+        /*List<String> newNameList = nameStream4
+                .toList();*/
+
+        /*List<String> newNameList = new ArrayList<>();
+        nameStream4.forEach(name -> {
+            newNameList.add(name);
+        });*/
+
+        // count()
+        // Stream에 남아있는 데이터를 센다.
+        /*System.out.println(nameStream4.count());*/
+
+        // allMatch, anyMatch, noneMatch
+        // 복수의 원소를 대상으로 일치 여부를 판단하고 싶을 때
+
+        // allMatch(Predicate)
+        // Stream의 남은 모든 원소가 Predicate의 결과가 true이면 true
+//        System.out.println(nameStream4.
+//                allMatch(name -> name.contains("A")));
+        // anyMatch(Predicate)
+        // Stream의 남은 원소 중 하나라도
+//        System.out.println(nameStream4.
+//                anyMatch("name -> name.contains("R)));
+        // noneMatch(Predicate)
+        // Stream 남은 원소 아무것도
+//        System.out.println(nameStream4
+//                .noneMatch(name -> name.contains("Z")));
+
+        // IntStream, LongStream, DoubleStream
+        int[] numbers = {1, 23, 45, 6, 7, 89};
+        IntStream numStream = Arrays.stream(numbers);
+        // sum()
+        // System.out.println(numStream.sum());
+        // min, max, average
+//        System.out.println(numStream.min());
+//        System.out.println(numStream.max());
+        System.out.println(numStream.average().getAsDouble());
     }
 }
