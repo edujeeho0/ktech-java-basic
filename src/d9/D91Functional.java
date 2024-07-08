@@ -3,6 +3,7 @@ package d9;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class D91Functional {
     public static void main(String[] args) {
@@ -84,6 +85,11 @@ public class D91Functional {
         // 메서드 직접 참조 (::)
         // String 안에 정의된 length 메서드를 전달한다.
         useStringFunction(String::length);
+
+        // 메서드 호출
+        System.out.println();
+        // 메서드 자체를 데이터로 사용
+        Consumer<Object> c = System.out::println;
     }
 
     public static void useStringFunction(
