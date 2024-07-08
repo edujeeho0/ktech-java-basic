@@ -49,7 +49,7 @@ public class D91Functional {
         useFunction(new NoArgRetFunction() {
             @Override
             public void noArgReturn() {
-                System.out.println("익명 클래스");
+                System.out.println("익명 내부 클래스");
             }
         });
 
@@ -81,6 +81,8 @@ public class D91Functional {
             return count;
         });
 
+        // 메서드 직접 참조 (::)
+        // String 안에 정의된 length 메서드를 전달한다.
         useStringFunction(String::length);
     }
 
