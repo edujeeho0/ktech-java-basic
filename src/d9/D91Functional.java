@@ -64,6 +64,31 @@ public class D91Functional {
             System.out.println("multiline lambda!");
         };
         useFunction(lambda);
+
+        nameList.stream()
+                // name이라는 매개변수를 가지고, name이 "e"를 포함하는지
+                // 반환하는 메서드
+                .filter(name -> name.contains("e"))
+                .toList();
+
+        System.out.println("before string function");
+        useStringFunction(str -> {
+            System.out.println("inside lambda");
+            int count = 0;
+            for (char a: str.toCharArray()) {
+                if (a == 'm') count++;
+            }
+            return count;
+        });
+
+        useStringFunction(String::length);
+    }
+
+    public static void useStringFunction(
+            StringArgFunction function
+    ) {
+        System.out.println("inside function");
+        System.out.println(function.run("lorem ipsum"));
     }
 
     public static void useFunction(
