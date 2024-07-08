@@ -48,6 +48,21 @@ public class D93UsingStream {
 //        IntStream lengthStream = nameStream2
 //                .mapToInt(name -> name.length());
 
+        // 중간 작업: 데이터를 정렬하자.
+        // sorted()
+        // Stream의 데이터를 정렬한 새로운 Stream
+        Stream<String> nameStream3 = nameStream2
+                .sorted();
+//        nameStream3.forEach(System.out::println);
+
+        // sorted(Compartor)
+        // Comparator를 사용해 데이터를 정렬한 새로운 Stream
+        // Comparator => 두개의 인자를 받아 어떤게 더 큰지를 정수로 반환하는
+        //               FunctionalInterface
+        Stream<String> nameStream4 = nameStream3
+                .sorted((name1, name2) -> -name1.compareTo(name2));
+//        nameStream4.forEach(System.out::println);
+
         // 3. Terminal Operations
         //    최종 작업: Stream의 데이터를 마지막으로 사용
     }
