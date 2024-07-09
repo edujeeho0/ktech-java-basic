@@ -3,14 +3,59 @@ package d10;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class D10FileIO {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 //        fileReader();
         List<Person> people = bufferedReader();
-        people = people.stream()
+        System.out.println("Current People:");
+        for (Person person : people) {
+            System.out.println(person);
+        }
+        /*people = people.stream()
                 .sorted((o1, o2) -> o1.getName().compareTo(o2.getName()))
-                .toList();
+                .toList();*/
+        // 사용자한테 입력을 받아 사람을 추가해보자.
+//        Scanner scanner = new Scanner(System.in);
+        // BufferedReader로 사용자 입력 받기
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        while (true) {
+            // 이름 입력하기
+            System.out.print("name: ");
+//            String name = scanner.nextLine();
+            String name = reader.readLine();
+            // 이메일 입력하기
+            System.out.print("email: ");
+//            String email = scanner.nextLine();
+            String email = reader.readLine();
+            // 나이 입력하기
+            System.out.print("age: ");
+//            int age = Integer.parseInt(scanner.nextLine());
+            int age = Integer.parseInt(reader.readLine());
+            // 성별 입력하기
+            System.out.print("gender: ");
+//            String gender = scanner.nextLine();
+            String gender = reader.readLine();
+
+            // 사용자가 입력한 정보를 바탕으로 새로운 사람을 만들자.
+            Person person = new Person(
+                    name, email, age, gender
+            );
+            // 사람을 리스트에 추가해주자.
+            people.add(person);
+            // 저장 메시지
+            System.out.println("Saved!!!");
+            // 사용자가 추가로 있는지 묻고,
+            System.out.print("add more? [y/n]: ");
+//            String hasNext = scanner.nextLine();
+            String hasNext = reader.readLine();
+            // 없으면
+            if (hasNext.equals("n")) {
+                // 종료
+                break;
+            }
+        }
         bufferedWriter(people);
     }
 
