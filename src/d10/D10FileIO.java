@@ -1,18 +1,53 @@
 package d10;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class D10FileIO {
     public static void main(String[] args) {
 //        fileReader();
-        bufferedReader();
+        List<Person> people = bufferedReader();
+        people = people.stream()
+                .sorted((o1, o2) -> o1.getName().compareTo(o2.getName()))
+                .toList();
+        bufferedWriter(people);
     }
 
-    public static void bufferedReader() {
+    public static void bufferedWriter(List<Person> people) {
+        // BufferedWriter: 버퍼링을 통해 출력을 효율적으로
+        //      그냥 사용할 경우 파일을 완전히 덮어쓴다.
+        //      그래서 최종적인 파일의 상태를 출력하는게 편하다.
+        // 만약, 이전 데이터에 이어서 데이터를 작성하고 싶다면,
+        // FileWriter의 생성자에 true 추가
+        try (FileWriter fileWriter = new FileWriter("people.csv");
+             BufferedWriter writer = new BufferedWriter(fileWriter)) {
+            for (Person person : people) {
+                /*writer.write(person.toString());
+                writer.newLine();*/
+                StringBuilder lineBuilder = new StringBuilder();
+                lineBuilder.append(person.getName()).append(',');
+                lineBuilder.append(person.getEmail()).append(',');
+                lineBuilder.append(person.getAge()).append(',');
+                lineBuilder.append(person.getGender());
+                String line = lineBuilder.toString();
+                writer.write(line);
+                // BufferedWriter의 newLine()은 OS별 개행문자의 차이를 없에준다.
+                writer.newLine();
+            }
+
+            /*// write: 주어진 인자를 출력한다.
+            writer.write("Hello FileIO!!!!!!!!");
+            // newLine: 개행문자를 출력한다.
+            writer.newLine();*/
+        } catch (IOException e) {
+            // 파일 열기 실패...
+            System.out.println("데이터 작성을 위한 파일을 열지 못했습니다...");
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static List<Person> bufferedReader() {
         List<Person> people = new ArrayList<>();
         try (FileReader fileReader = new FileReader("people.csv");
              BufferedReader reader = new BufferedReader(fileReader)) {
@@ -33,7 +68,8 @@ public class D10FileIO {
             System.out.println("파일을 열지 못했습니다...");
             System.out.println(e.getMessage());
         }
-        System.out.println(people);
+//        System.out.println(people);
+        return people;
     }
 
     public static void fileReader() {
