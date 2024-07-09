@@ -1,19 +1,45 @@
 package d10;
 
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class D10FileIO {
     public static void main(String[] args) {
-        fileReader();
+//        fileReader();
+        bufferedReader();
+    }
+
+    public static void bufferedReader() {
+        List<Person> people = new ArrayList<>();
+        try (FileReader fileReader = new FileReader("people.csv");
+             BufferedReader reader = new BufferedReader(fileReader)) {
+            String line;
+            // BufferedReader는 데이터를 버퍼링 해준다.
+            //      많은 데이터를 한번에 모아서 전달한다.
+            while ((line = reader.readLine()) != null) {
+                String[] elements = line.split(",");
+                people.add(new Person(
+                        elements[0],
+                        elements[1],
+                        Integer.parseInt(elements[2]),
+                        elements[3]
+                ));
+            }
+        } catch (IOException e) {
+            // 파일 열기 실패...
+            System.out.println("파일을 열지 못했습니다...");
+            System.out.println(e.getMessage());
+        }
+        System.out.println(people);
     }
 
     public static void fileReader() {
         // Java 7 이후
         // try-with-resource
+        // 사람을 보관할 리스트
         List<Person> people = new ArrayList<>();
         try (FileReader reader = new FileReader("people.csv")) {
             // 읽어들인 문자를 저장하기 위한 변수
