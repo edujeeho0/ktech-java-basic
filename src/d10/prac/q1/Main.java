@@ -58,9 +58,9 @@ public class Main {
             while ((line = reader.readLine()) != null) {
                 String[] values = line.split(",");
                 String[] date = values[3].split("-");
-                int year = Integer.parseInt(date[0]);
-                int month = Integer.parseInt(date[1]);
-                int day = Integer.parseInt(date[2]);
+//                int year = Integer.parseInt(date[0]);
+//                int month = Integer.parseInt(date[1]);
+//                int day = Integer.parseInt(date[2]);
 //                LocalDate releaseDate = LocalDate.of(year, month, day);
                 LocalDate releaseDate = LocalDate.parse(values[3]);
                 musicList.add(new Music(

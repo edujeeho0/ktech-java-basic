@@ -54,7 +54,7 @@ public class Main {
     private static List<Movie> readData() {
         List<Movie> movieList = new ArrayList<>();
         try (FileReader fileReader = new FileReader("movie.csv");
-            BufferedReader reader = new BufferedReader(fileReader)) {
+             BufferedReader reader = new BufferedReader(fileReader)) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] values = line.split(",");

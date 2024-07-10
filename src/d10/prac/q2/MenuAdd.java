@@ -2,6 +2,7 @@ package d10.prac.q2;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class MenuAdd {
@@ -12,11 +13,13 @@ public class MenuAdd {
             System.out.print("name: ");
             String name = reader.readLine();
             System.out.print("price: ");
-            int age = Integer.parseInt(reader.readLine());
+            int price = Integer.parseInt(reader.readLine());
             menuList.add(new Menu(
                     name,
-                    age
+                    price
             ));
+            menuList.sort((o1, o2) -> o1.getName().compareTo(o2.getName()));
+            // menuList.sort(Comparator.comparing(Menu::getName));
             System.out.println("Saved!!!");
             System.out.print("Add more? [y/n]: ");
             String addMore = reader.readLine();
@@ -30,7 +33,7 @@ public class MenuAdd {
     private static List<Menu> readData() {
         List<Menu> menuList = new ArrayList<>();
         try (FileReader fileReader = new FileReader("menu.csv");
-            BufferedReader reader = new BufferedReader(fileReader)) {
+             BufferedReader reader = new BufferedReader(fileReader)) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] values = line.split(",");
